@@ -1,0 +1,140 @@
+/* Global Styling */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f1f1f7;
+    padding:40px;
+    margin:0;
+}
+
+/* Card Box */
+.card {
+    width: 500px;
+    background: #fff;
+    margin: auto;
+    padding:25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+.card h2, h3 {
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* Labels */
+label {
+    font-weight:600;
+    margin-top:10px;
+    display:block;
+    margin-bottom:6px;
+}
+
+/* Inputs */
+input[type="text"], 
+input[type="number"],
+input[type="date"],
+select {
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    margin-bottom:12px;
+    font-size:15px;
+    background:#fafafa;
+}
+
+/* Readonly fields */
+input[readonly] {
+    background:#f0f0f0;
+    font-weight:600;
+}
+
+/* Days Checkbox */
+.days {
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    margin:10px 0 20px 0;
+}
+.days label {
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-weight:500;
+    background:#f7f7f7;
+    padding:6px 12px;
+    border-radius:6px;
+    border:1px solid #ddd;
+}
+
+/* Buttons */
+button {
+    width:100%;
+    padding:12px;
+    background:#0066ff;
+    border:none;
+    color:white;
+    font-size:16px;
+    font-weight:600;
+    border-radius:8px;
+    cursor:pointer;
+    transition:0.2s;
+}
+button:hover {
+    background:#004fcc;
+}
+
+/* Back & Next buttons */
+.btn-small {
+    width:150px;
+    padding:10px;
+    margin-bottom:20px;
+}
+
+.btn-back { background:#444; }
+.btn-back:hover { background:#000; }
+
+.btn-next { background:#5a2dff; }
+.btn-next:hover { background:#4215cd; }
+
+.btn-save { background:#28a745; }
+.btn-save:hover { background:#1f8b36; }
+
+/* Table */
+table {
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    margin-top:20px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+
+th {
+    background:#0066ff;
+    color:white;
+    padding:12px;
+}
+
+td {
+    padding:10px;
+    border-bottom:1px solid #eee;
+}
+
+td input {
+    border:none !important;
+    background:transparent;
+    text-align:center;
+}
+
+/* Info Box */
+.info-box {
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.06);
+}
