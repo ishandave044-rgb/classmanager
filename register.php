@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $_SESSION["teacher_id"] = $q->insert_id;
             $_SESSION["teacher_name"] = $username;
-            header("Location: index.php");
+            header("Location: dashboard.php");
             exit();
         }
     }

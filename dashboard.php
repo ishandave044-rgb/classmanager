@@ -160,7 +160,7 @@ body{margin:0;font-family:Inter,Segoe UI,Arial,Helvetica,sans-serif;background:v
       <li><a href="dashboard.php" class="active">🏠 Dashboard <span class="dot"></span></a></li>
       <li><a href="index.php">➕ Create Schedule</a></li>
       <li><a href="schedules.php">📋 My Schedules</a></li>
-      <li><a href="page2.php">📝 Entries</a></li>
+      <li><a href="entries.php">📝 Entries</a></li>
       <li><a href="profile.php">👤 Profile</a></li>
       <li><a href="settings.php">⚙️ Settings</a></li>
       <li><a href="logout.php" style="color:#ff3b3b">🔓 Logout</a></li>
