@@ -1,5 +1,5 @@
 <?php
-// dashboard.php  — include or use at top of your protected pages
+// dashboard.php — include or use at top of your protected pages
 session_start();
 if (!isset($_SESSION['teacher_name'])) {
     header("Location: login.php");
