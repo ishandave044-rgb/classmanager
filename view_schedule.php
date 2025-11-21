@@ -34,7 +34,7 @@ if (!$schedule) {
 $start_date = $schedule['start_date'];
 $days_selected = array_map('trim', explode(",", $schedule['days_selected']));
 
-// Fetch saved entries for this schedule
+// Fetch saved entries
 $q = $conn->prepare("SELECT * FROM lesson_entries WHERE schedule_id = ? ORDER BY date ASC");
 $q->bind_param("i", $schedule_id);
 $q->execute();
@@ -51,7 +51,6 @@ while ($row = $r->fetch_assoc()) {
 <head>
 <title>View Schedule</title>
 
-<!-- INTERNAL CSS -->
 <style>
 body{
     margin:0;
@@ -76,7 +75,6 @@ body{
     color:#222;
 }
 
-/* Buttons Row */
 .top-row{
     display:flex;
     justify-content:space-between;
@@ -84,7 +82,6 @@ body{
     margin-bottom:20px;
 }
 
-/* Back Button */
 .back-btn{
     padding:10px 16px;
     background:#0066ff;
@@ -93,33 +90,15 @@ body{
     border-radius:8px;
     cursor:pointer;
     font-weight:600;
-    transition:0.2s;
 }
 .back-btn:hover{ background:#004ecc; }
 
-/* Edit Button */
-.edit-btn{
-    padding:10px 18px;
-    background:#28a745;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:600;
-    transition:0.2s;
-}
-.edit-btn:hover{
-    background:#1e8a39;
-}
-
-/* Info Box */
 .info{
     background:#f7f8fc;
     padding:15px;
     border-radius:12px;
     margin-bottom:25px;
     font-size:15px;
-    line-height:24px;
 }
 
 table{
@@ -135,10 +114,18 @@ th, td{
 th{
     background:#0066ff;
     color:white;
-    font-size:15px;
 }
-td{
-    background:#fafafa;
+
+.edit-small{
+    padding:6px 10px;
+    background:#28a745;
+    color:white;
+    border-radius:6px;
+    font-size:13px;
+    text-decoration:none;
+}
+.edit-small:hover{
+    background:#1c7e32;
 }
 </style>
 
@@ -147,13 +134,8 @@ td{
 
 <div class="container">
 
-    <!-- Buttons Row -->
     <div class="top-row">
         <button class="back-btn" onclick="window.location.href='entries.php'">← Back</button>
-
-        <button class="edit-btn" onclick="window.location.href='page2.php?id=<?= $schedule_id ?>'">
-            ✏️ Edit Schedule
-        </button>
     </div>
 
     <div class="title">View Schedule Details</div>
@@ -174,10 +156,10 @@ td{
             <th>Attendance</th>
             <th>Status</th>
             <th>Notes</th>
+            <th>Action</th>
         </tr>
 
         <?php
-        // Generate next 10 entries
         $current = strtotime($start_date);
         $count = 0;
 
@@ -193,16 +175,24 @@ td{
             if (in_array($short, $days_selected)) {
 
                 $date_val = date("Y-m-d", $current);
+                $entry = $saved[$date_val] ?? null;
+                $entry_id = $entry['entry_id'] ?? null;
 
                 echo "<tr>";
 
                 echo "<td>$short</td>";
                 echo "<td>$date_val</td>";
 
-                echo "<td>" . ($saved[$date_val]['topic'] ?? '') . "</td>";
-                echo "<td>" . ($saved[$date_val]['attendance'] ?? '') . "</td>";
-                echo "<td>" . ($saved[$date_val]['status'] ?? '') . "</td>";
-                echo "<td>" . ($saved[$date_val]['notes'] ?? '') . "</td>";
+                echo "<td>" . ($entry['topic'] ?? '') . "</td>";
+                echo "<td>" . ($entry['attendance'] ?? '') . "</td>";
+                echo "<td>" . ($entry['status'] ?? '') . "</td>";
+                echo "<td>" . ($entry['notes'] ?? '') . "</td>";
+
+                if ($entry_id) {
+                    echo "<td><a class='edit-small' href='edit_entry_new.php?entry_id=$entry_id'>Edit</a></td>";
+                } else {
+                    echo "<td style='color:#777;'>—</td>";
+                }
 
                 echo "</tr>";
 

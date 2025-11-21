@@ -152,13 +152,13 @@ body{
                 <div class="line"><span class="label">Class:</span> <?= htmlspecialchars($row['class_name']) ?></div>
                 <div class="line"><span class="label">Start Date:</span> <?= htmlspecialchars($row['start_date']) ?></div>
                 <div class="line"><span class="label">Days:</span> <?= htmlspecialchars($row['days_selected']) ?></div>
-                <div class="line small-muted"><span class="label">Created On:</span> <?= htmlspecialchars($row['id']) ?></div>
+                <!-- <div class="line small-muted"><span class="label">Created On:</span> <?= htmlspecialchars($row['id']) ?></div> -->
             </div>
 
             <div class="card-footer">
                 <div class="left">
                     <button class="btn btn-primary" onclick="window.location.href='view_schedule.php?id=<?= (int)$row['id'] ?>'">View</button>
-                    <button class="btn btn-outline" onclick="window.location.href='page2.php?id=<?= (int)$row['id'] ?>'">Edit</button>
+                    <!-- <button class="btn btn-outline" onclick="window.location.href='edit_entry.php?id=<?= (int)$row['id'] ?>'">Edit</button> -->
                 </div>
 
                 <div class="right">
