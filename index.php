@@ -150,7 +150,6 @@ button[type="submit"]:hover {
     </a>
 
 </div>
-
 <!-- Main Form Card -->
 <div class="card">
 
